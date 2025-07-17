@@ -155,7 +155,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.37582764, g: 0.78113204, b: 0.7097187, a: 0}
+  m_BackGroundColor: {r: 0.61928797, g: 0.8791584, b: 0.89433956, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -220,7 +220,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 619394802}
-  - component: {fileID: 619394801}
   m_Layer: 0
   m_Name: Global Light 2D
   m_TagString: Untagged
@@ -228,18 +227,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &619394801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619394800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -255,6 +242,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1209159651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209159653}
+  - component: {fileID: 1209159652}
+  m_Layer: 0
+  m_Name: Pipe Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1209159652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209159651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9591938d1a9adee47a80806d2422b19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pipe: {fileID: 3306392627081374576, guid: b73134f899f6e4a4f9610850f298e2e5, type: 3}
+  spawnRate: 3
+  heightOffSet: 3
+--- !u!4 &1209159653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209159651}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.19, y: 0.77736664, z: -0.4086751}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4420367398857792396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -263,6 +297,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538962670720708920, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_LayerOverridePriority
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313803049851328725, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: flapStrength
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440323065202222424, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.38991842
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440323065202222424, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.38991842
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440323065202222424, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.38991842
+      objectReference: {fileID: 0}
     - target: {fileID: 5440323065202222424, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.203783
@@ -303,6 +357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7789197454645765614, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8340701948541750945, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
       propertyPath: m_Name
       value: Bella
@@ -319,3 +377,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 4420367398857792396}
+  - {fileID: 1209159653}

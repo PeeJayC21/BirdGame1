@@ -4,6 +4,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public float flapStrength; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,9 +14,10 @@ public class NewMonoBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // this will make Bella jump
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.linearVelocity = Vector2.up * 5;
+            rb.linearVelocity = Vector2.up * flapStrength;
         }
 
     }

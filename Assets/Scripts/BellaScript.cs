@@ -8,10 +8,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public LogicSCript logic;
     public bool birdIsAlive = true;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicSCript>();
+        
     }
 
     // Update is called once per frame

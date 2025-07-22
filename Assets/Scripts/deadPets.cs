@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class deadPets : MonoBehaviour
@@ -12,13 +11,15 @@ public class deadPets : MonoBehaviour
         currSprite = deadSprite;
         // if pet dies, the dead sprite will be used 
         pet.GetComponent<SpriteRenderer>().sprite = currSprite;
+        pet.GetComponent<CircleCollider2D>().enabled = false;
     }
 
     public void outOfBounds()
     {
         currSprite = deadSprite;
 
-        gameObject.GetComponent<SpriteRenderer>().sprite = currSprite;
+        pet.GetComponent<SpriteRenderer>().sprite = currSprite;
+        pet.GetComponent<CircleCollider2D>().enabled = false;
     }
 
 }

@@ -1218,6 +1218,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 436006990974229546, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 538962670720708920, guid: 9c8ac218905ec8044b1dfdea3eae4307, type: 3}
       propertyPath: m_LayerOverridePriority
       value: 0

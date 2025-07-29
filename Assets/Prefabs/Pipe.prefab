@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7971153922093297802}
   m_Layer: 0
   m_Name: Pipe
-  m_TagString: Untagged
+  m_TagString: Pipe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   deSpawnZone: -40
+  bellaScript: {fileID: 0}
 --- !u!1 &8575857553972954095
 GameObject:
   m_ObjectHideFlags: 0

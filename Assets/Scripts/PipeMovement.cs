@@ -19,19 +19,19 @@ public class PipeMovement : MonoBehaviour
 
         if (bellaScript.birdIsAlive)
         {
-            transform.position = transform.position + (Vector3.left * moveSpeed * Time.deltaTime);
+            transform.position = transform.position + (moveSpeed * Time.deltaTime * Vector3.left);
         }
-
 
         if (transform.position.x < deSpawnZone)
         {
-            despawnPipe();
+            DespawnPipe();
         }
     }
-    
-    void despawnPipe()
+
+    void DespawnPipe()
     {
         Debug.Log("Pipe Broken!");
         Destroy(gameObject);
     }
+
 }

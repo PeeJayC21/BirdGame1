@@ -1,5 +1,5 @@
 # BirdGame1
-Hi, my name is Pee Jay and BirdGame1 is the first game I have ever made. This game resembles the famous "Flappy Bird" with its mechanics and design. I developed this game to be more familiar with unity hub's services, packages and be a more proficient at using CSharp. I do not plan to release this in public and its only purpose is to develop my skills further.
+Hi, my name is Pee Jay and BirdGame1 is the first game I have ever made. This game resembles the famous "Flappy Bird" with its mechanics and design. I developed this game to be more familiar with unity hub's services, packages and be more proficient at using CSharp. I do not plan to release this in public and its only purpose is to develop my skills further.
 
 #Mechanics
 Press the play game option from the main menu to get started with the game.

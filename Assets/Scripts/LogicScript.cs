@@ -20,12 +20,17 @@ public class LogicSCript : MonoBehaviour
     {
         playerScore += scoreToAdd;
         scoreText.text = playerScore.ToString();
+
+        if (playerScore > getHighestScore())
+        {
+            highestScoreText.SetText(playerScore.ToString());
+        }
+
     }
     public void storeScore()
     {
         scoreList.Add(highestScore);
         saveHighestScore();
-        printHighestScore();
     }
 
     public void RestartGame()
@@ -37,6 +42,7 @@ public class LogicSCript : MonoBehaviour
     {
         highestScore = playerScore;
         storeScore();
+        AudioManager.instance.musicSource.Stop();
         gameOverScreen.SetActive(true);
     }
 
@@ -59,14 +65,10 @@ public class LogicSCript : MonoBehaviour
     {
         highestScoreText.SetText(getHighestScore().ToString());
     }
+
     void Start()
     {
         printHighestScore();
     }
-    
-    // this supposedly update the highscore once player beats the current once
-    // void Update()
-    // {
-    //     printHighestScore();
-    // }
+
 }

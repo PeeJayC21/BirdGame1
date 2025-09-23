@@ -10,16 +10,20 @@ public class BellaScript : MonoBehaviour
     private Vector3 petPos;
     private deadPets dead;
 
+    public float deadPetSpeed;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicSCript>();
         dead = GameObject.FindGameObjectWithTag("Pet").GetComponent<deadPets>();
+        AudioManager.instance.playMusic("Bg Music");
+        AudioManager.instance.musicSource.loop = true;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // this updates the current position of the pet
         petPos = Camera.main.WorldToViewportPoint(transform.position);
@@ -28,22 +32,33 @@ public class BellaScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
             rb.linearVelocity = Vector2.up * flapStrength;
+            AudioManager.instance.playSFX("Jump");
         }
 
+        
         // games over if Bella is out of the screen
         if (petPos.y > 1.1 || petPos.y < -0.1)
         {
             logic.GameOver();
             birdIsAlive = false;
             dead.outOfBounds();
+            // Destroy(gameObject);
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        AudioManager.instance.playSFX("Game Over");
         logic.GameOver();
         birdIsAlive = false;
         dead.hitPole();
+        float minX = -5f;
+        float maxX = 5f;
+        float minY = -5f;
+        float maxY = 5f;
+
+        Vector2 randomVector = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        float randSpeed = Random.Range(1f, 20f);
+        rb.linearVelocity = randomVector * randSpeed;
     }
 }

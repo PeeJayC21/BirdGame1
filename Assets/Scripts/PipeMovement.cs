@@ -30,7 +30,6 @@ public class PipeMovement : MonoBehaviour
 
     void DespawnPipe()
     {
-        Debug.Log("Pipe Broken!");
         Destroy(gameObject);
     }
 

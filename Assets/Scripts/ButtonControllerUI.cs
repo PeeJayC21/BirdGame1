@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,18 +10,15 @@ public class ButtonControllerUI : MonoBehaviour
     public Sprite muteBtnSprite;
 
 
-    public void checkMusicBtnState()
+    public void CheckMusicBtnState()
     {
-        bool musicMuted = AudioManager.instance.getIsMusicMuted();
-
-
+        bool musicMuted = AudioManager.instance.IsMusicMuted();
         musicBtn.image.sprite = musicMuted ? muteBtnSprite : unmutedBtnSprite;
     }
 
-    public void checkSFXBtnState()
+    public void CheckSFXBtnState()
     {
-        bool SFXMuted = AudioManager.instance.getIsSFXMuted();
-
+        bool SFXMuted = AudioManager.instance.IsSFXMuted();
         sfxButton.image.sprite = SFXMuted ? muteBtnSprite : unmutedBtnSprite;
     }
 }

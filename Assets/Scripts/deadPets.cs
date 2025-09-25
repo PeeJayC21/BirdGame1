@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class deadPets : MonoBehaviour
+public class DeadPets : MonoBehaviour
 {
     [SerializeField] Sprite deadSprite;
 
     [SerializeField] Sprite currSprite;
     public GameObject pet;
-    public void hitPole()
+    public void HitPole()
     {
         currSprite = deadSprite;
         // if pet dies, the dead sprite will be used and its collider will not be used
@@ -14,7 +14,7 @@ public class deadPets : MonoBehaviour
         // pet.GetComponent<CircleCollider2D>().enabled = false;
     }
 
-    public void outOfBounds()
+    public void OutOfBounds()
     {
         currSprite = deadSprite;
 

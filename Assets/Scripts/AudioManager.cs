@@ -7,20 +7,17 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
-    private bool isMusicMuted = false;
-    private bool isSFXMuted = false;
-
     private float prevMusicVolume;
     private float prevSFXVolume;
 
-    public bool getIsMusicMuted()
+    public bool IsMusicMuted()
     {
-        return isMusicMuted;
+    return musicSource.volume == 0;
     }
 
-    public bool getIsSFXMuted()
+    public bool IsSFXMuted()
     {
-        return isSFXMuted;
+        return sfxSource.volume == 0;
     }
 
     private void Awake()
@@ -36,7 +33,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void playMusic(string name)
+    public void PlayMusic(string name)
     {
         Sound sound = Array.Find(musicSounds, x => x.name == name);
 
@@ -53,7 +50,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    public void playSFX(string name)
+    public void PlaySFX(string name)
     {
         Sound sfx = Array.Find(sfxSounds, x => x.name == name);
 
@@ -69,43 +66,38 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void toggleMusic()
+    public void ToggleMusic()
     {
-        if (isMusicMuted == false)
-        {
-            prevMusicVolume = musicSource.volume;
-            musicSource.volume = 0.0f;
-            isMusicMuted = true;
-        }
-        else
-        {
-            musicSource.volume = prevMusicVolume;
-            isMusicMuted = false;
-        }
-       
+    if (musicSource.volume > 0)
+    {
+        prevMusicVolume = musicSource.volume;
+        musicSource.volume = 0;
     }
-    public void toggleSFX()
+    else
     {
-        if (isSFXMuted == false)
+        musicSource.volume = prevMusicVolume > 0 ? prevMusicVolume : 1f;
+    }
+    }
+    public void ToggleSFX()
+    {
+        if (sfxSource.volume > 0)
         {
             prevSFXVolume = sfxSource.volume;
             sfxSource.volume = 0.0f;
-            isSFXMuted = true;
         }
         else
         {
-            sfxSource.volume = prevSFXVolume;
-            isSFXMuted = false;
+            sfxSource.volume = prevSFXVolume > 0 ? prevSFXVolume : 1f;
         }
         
     }
 
-    public float getMusicVolume()
+    public float GetMusicVolume()
     {
         return musicSource.volume;
     }
 
-    public float getSFXVolume()
+    public float GetSFXVolume()
     {
         return sfxSource.volume;
     }

@@ -12,7 +12,7 @@ public class LogicSCript : MonoBehaviour
     public TMP_Text highestScoreText;
     public GameObject gameOverScreen;
     public int highestScore;
-    private readonly List<int> scoreList = new List<int>();
+    private readonly List<int> scoreList = new();
 
     private bool isPaused = false;
 
@@ -25,16 +25,16 @@ public class LogicSCript : MonoBehaviour
         playerScore += scoreToAdd;
         scoreText.text = playerScore.ToString();
 
-        if (playerScore > getHighestScore())
+        if (playerScore > GetHighestScore())
         {
             highestScoreText.SetText(playerScore.ToString());
         }
 
     }
-    public void storeScore()
+    public void StoreScore()
     {
         scoreList.Add(highestScore);
-        saveHighestScore();
+        SaveHighestScore();
     }
 
     public void RestartGame()
@@ -46,19 +46,19 @@ public class LogicSCript : MonoBehaviour
     {
         isGameOver = true;
         highestScore = playerScore;
-        storeScore();
+        StoreScore();
         AudioManager.instance.musicSource.Stop();
         gameOverScreen.SetActive(true);
     }
 
-    public int getHighestScore()
+    public int GetHighestScore()
     {
         return PlayerPrefs.GetInt("HighestScore", 0);
     }
 
-    private void saveHighestScore()
+    private void SaveHighestScore()
     {
-        int currentHighest = getHighestScore();
+        int currentHighest = GetHighestScore();
         if (highestScore > currentHighest)
         {
             PlayerPrefs.SetInt("HighestScore", highestScore);
@@ -66,14 +66,14 @@ public class LogicSCript : MonoBehaviour
         }
     }
 
-    public void printHighestScore()
+    public void PrintHighestScore()
     {
-        highestScoreText.SetText(getHighestScore().ToString());
+        highestScoreText.SetText(GetHighestScore().ToString());
     }
 
     void Start()
     {
-        printHighestScore();
+        PrintHighestScore();
     }
 
     public void TogglePause()

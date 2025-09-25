@@ -429,7 +429,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2013904845}
         m_TargetAssemblyTypeName: InGameOptionManager, Assembly-CSharp
-        m_MethodName: sfxVolume
+        m_MethodName: SfxVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1945,7 +1945,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2013904845}
         m_TargetAssemblyTypeName: InGameOptionManager, Assembly-CSharp
-        m_MethodName: muteMusic
+        m_MethodName: MuteMusic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2095,7 +2095,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2013904845}
         m_TargetAssemblyTypeName: InGameOptionManager, Assembly-CSharp
-        m_MethodName: muteSFX
+        m_MethodName: MuteSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4531,7 +4531,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2013904845}
         m_TargetAssemblyTypeName: InGameOptionManager, Assembly-CSharp
-        m_MethodName: musicVolume
+        m_MethodName: MusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

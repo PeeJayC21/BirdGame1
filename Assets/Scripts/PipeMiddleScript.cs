@@ -15,7 +15,7 @@ public class PipeMiddleScript : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             logic.AddScore(1);
-            AudioManager.instance.playSFX("Score");
+            AudioManager.instance.PlaySFX("Score");
         }
     }
 }

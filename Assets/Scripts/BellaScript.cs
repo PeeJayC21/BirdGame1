@@ -8,7 +8,7 @@ public class BellaScript : MonoBehaviour
     public LogicSCript logic;
     public bool birdIsAlive = true;
     private Vector3 petPos;
-    private deadPets dead;
+    private DeadPets dead;
 
     public float deadPetSpeed;
 
@@ -17,8 +17,8 @@ public class BellaScript : MonoBehaviour
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicSCript>();
-        dead = GameObject.FindGameObjectWithTag("Pet").GetComponent<deadPets>();
-        AudioManager.instance.playMusic("Bg Music");
+        dead = GameObject.FindGameObjectWithTag("Pet").GetComponent<DeadPets>();
+        AudioManager.instance.PlayMusic("Bg Music");
         AudioManager.instance.musicSource.loop = true;
     }
 
@@ -34,7 +34,7 @@ public class BellaScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
             rb.linearVelocity = Vector2.up * flapStrength;
-            AudioManager.instance.playSFX("Jump");
+            AudioManager.instance.PlaySFX("Jump");
         }
 
         
@@ -43,23 +43,23 @@ public class BellaScript : MonoBehaviour
         {
             logic.GameOver();
             birdIsAlive = false;
-            dead.outOfBounds();
+            dead.OutOfBounds();
             // Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AudioManager.instance.playSFX("Game Over");
+        AudioManager.instance.PlaySFX("Game Over");
         logic.GameOver();
         birdIsAlive = false;
-        dead.hitPole();
+        dead.HitPole();
         float minX = -5f;
         float maxX = 5f;
         float minY = -5f;
         float maxY = 5f;
 
-        Vector2 randomVector = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        Vector2 randomVector = new(Random.Range(minX, maxX), Random.Range(minY, maxY));
         float randSpeed = Random.Range(1f, 20f);
         rb.linearVelocity = randomVector * randSpeed;
     }

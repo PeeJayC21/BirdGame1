@@ -1,4 +1,3 @@
-using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,41 +10,40 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        musicSlider.value = AudioManager.instance.getMusicVolume();
-        SFXSlider.value = AudioManager.instance.getSFXVolume();
+        musicSlider.value = AudioManager.instance.GetMusicVolume();
+        SFXSlider.value = AudioManager.instance.GetSFXVolume();
     }
 
     void Update()
     {
-        musicSlider.value = AudioManager.instance.getMusicVolume();
-        SFXSlider.value = AudioManager.instance.getSFXVolume();
+        musicSlider.value = AudioManager.instance.GetMusicVolume();
+        SFXSlider.value = AudioManager.instance.GetSFXVolume();
+
+        bool musicMuted = AudioManager.instance.IsMusicMuted();
+        musicButton.image.sprite = musicMuted || musicSlider.value == 0 ? muteBtnSprite : unmuteBtnSprite;
+
+
+        bool sfxMuted = AudioManager.instance.IsSFXMuted();
+        sfxButton.image.sprite = sfxMuted || SFXSlider.value == 0 ? muteBtnSprite : unmuteBtnSprite;
     }
 
-    public void toggleMusic()
+    public void ToggleMusic()
     {
-        AudioManager.instance.toggleMusic();
-        bool musicMuted = AudioManager.instance.getIsMusicMuted();
-
-        musicButton.image.sprite = musicMuted ? muteBtnSprite : unmuteBtnSprite;
-
+        AudioManager.instance.ToggleMusic();
     }
 
-    public void toggleSFX()
+    public void ToggleSFX()
     {
-        AudioManager.instance.toggleSFX();
-
-        bool sfxMuted = AudioManager.instance.getIsSFXMuted();
-
-        sfxButton.image.sprite = sfxMuted ? muteBtnSprite : unmuteBtnSprite;
+        AudioManager.instance.ToggleSFX();
     }
 
-    public void musicVolume()
+    public void MusicVolume()
     {
         AudioManager.instance.MusicVolume(musicSlider.value);
     }
 
 
-    public void sfxVolume()
+    public void SfxVolume()
     {
         AudioManager.instance.SFXVolume(SFXSlider.value);
     }

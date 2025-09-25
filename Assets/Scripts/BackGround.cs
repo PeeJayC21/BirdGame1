@@ -31,14 +31,14 @@ public class BackGround : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().color = prevColor;
         }
-        
+
         if (!bellaScript.birdIsAlive) return;
 
         transform.position += moveSpeed * Time.deltaTime * Vector3.left;
 
         if (transform.position.x <= -width)
         {
-            transform.position += Vector3.right * width * 2f;
+            transform.position += 2 * width* Vector3.right;
         }
 
     }

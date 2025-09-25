@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,15 +16,19 @@ public class InGameOptionManager : MonoBehaviour
     void Start()
     {
         logicSCript = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicSCript>();
-        musicSlider.value = AudioManager.instance.getMusicVolume();
-        sfxSlider.value = AudioManager.instance.getSFXVolume();
+        musicSlider.value = AudioManager.instance.GetMusicVolume();
+        sfxSlider.value = AudioManager.instance.GetSFXVolume();
     }
 
 
     void Update()
     {
-        musicSlider.value = AudioManager.instance.getMusicVolume();
-        sfxSlider.value = AudioManager.instance.getSFXVolume();
+        musicSlider.value = AudioManager.instance.GetMusicVolume();
+        sfxSlider.value = AudioManager.instance.GetSFXVolume();
+
+        musicButtonController.CheckMusicBtnState();
+        sfxButtonController.CheckSFXBtnState();
+        
     }
 
     public void TogglePause()
@@ -47,30 +50,25 @@ public class InGameOptionManager : MonoBehaviour
         logicSCript.ToggleMainMenu();
     }
 
-    public void muteMusic()
+    public void MuteMusic()
     {
-        AudioManager.instance.toggleMusic();
-        musicButtonController.checkMusicBtnState();
+        AudioManager.instance.ToggleMusic();
+         
+    }
 
-        musicSlider.value = AudioManager.instance.getIsMusicMuted() ? 0f : AudioManager.instance.getMusicVolume();
+    public void MuteSFX()
+    {
+        AudioManager.instance.ToggleSFX();
         
     }
 
-    public void muteSFX()
-    {
-        AudioManager.instance.toggleSFX();
-        sfxButtonController.checkSFXBtnState();
-
-        sfxSlider.value = AudioManager.instance.getIsSFXMuted() ? 0f : AudioManager.instance.getSFXVolume();
-    }
-
-    public void musicVolume()
+    public void MusicVolume()
     {
         AudioManager.instance.MusicVolume(musicSlider.value);
         
     }
 
-    public void sfxVolume()
+    public void SfxVolume()
     {
         AudioManager.instance.SFXVolume(sfxSlider.value);
         

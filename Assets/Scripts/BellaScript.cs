@@ -25,6 +25,8 @@ public class BellaScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (logic.getIsPaused()) return;
+
         // this updates the current position of the pet
         petPos = Camera.main.WorldToViewportPoint(transform.position);
 

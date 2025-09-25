@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: df8effbb213b52a468f8faf7d9b7112a
+guid: a32fb5f2ec946b64da2c9a671892db13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2770679598906573766
-    second: button-31222_1280_0
+      213: -359258627205217253
+    second: Play Again btn_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: button-31222_1280_0
+      name: Play Again btn_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1280
-        height: 1269
+        x: 122
+        y: 159
+        width: 279
+        height: 278
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c38f3f5a6e637620800000000000000
-      internalID: 2770679598906573766
+      spriteID: b1440f69e28a30bf0800000000000000
+      internalID: -359258627205217253
       vertices: []
       indices: 
       edges: []

@@ -12,7 +12,11 @@ public class LogicSCript : MonoBehaviour
     public TMP_Text highestScoreText;
     public GameObject gameOverScreen;
     public int highestScore;
-    private List<int> scoreList = new List<int>();
+    private readonly List<int> scoreList = new List<int>();
+
+    private bool isPaused = false;
+
+    private bool isGameOver = false;
 
 
     [ContextMenu("Increase Score:")]
@@ -40,6 +44,7 @@ public class LogicSCript : MonoBehaviour
 
     public void GameOver()
     {
+        isGameOver = true;
         highestScore = playerScore;
         storeScore();
         AudioManager.instance.musicSource.Stop();
@@ -69,6 +74,42 @@ public class LogicSCript : MonoBehaviour
     void Start()
     {
         printHighestScore();
+    }
+
+    public void TogglePause()
+    {
+        isPaused = true;
+        Time.timeScale = 0.0f;
+    }
+
+    public void ToggleResume()
+    {
+        isPaused = false;
+        Time.timeScale = 1.0f;
+    }
+
+    public void ToggleMainMenu()
+    {
+        SceneManager.LoadScene(1);
+        if (AudioManager.instance.musicSource.isPlaying)
+        {
+            AudioManager.instance.musicSource.Stop();
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public bool getIsPaused()
+    {
+        return isPaused;
+    }
+
+    public bool GetIsGameOver()
+    {
+        return isGameOver;
     }
 
 }

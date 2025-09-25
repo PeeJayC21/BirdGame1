@@ -7,6 +7,9 @@ TagManager:
   - Logic
   - Pet
   - Pipe
+  - BackGround
+  - musicButton
+  - sfxButton
   layers:
   - Default
   - TransparentFX

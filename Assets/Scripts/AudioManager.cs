@@ -7,6 +7,22 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
+    private bool isMusicMuted = false;
+    private bool isSFXMuted = false;
+
+    private float prevMusicVolume;
+    private float prevSFXVolume;
+
+    public bool getIsMusicMuted()
+    {
+        return isMusicMuted;
+    }
+
+    public bool getIsSFXMuted()
+    {
+        return isSFXMuted;
+    }
+
     private void Awake()
     {
         if (instance == null)
@@ -19,7 +35,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 
     public void playMusic(string name)
     {
@@ -56,11 +71,43 @@ public class AudioManager : MonoBehaviour
 
     public void toggleMusic()
     {
-        musicSource.mute = !musicSource.mute;
+        if (isMusicMuted == false)
+        {
+            prevMusicVolume = musicSource.volume;
+            musicSource.volume = 0.0f;
+            isMusicMuted = true;
+        }
+        else
+        {
+            musicSource.volume = prevMusicVolume;
+            isMusicMuted = false;
+        }
+       
     }
     public void toggleSFX()
     {
-        sfxSource.mute = !sfxSource.mute;
+        if (isSFXMuted == false)
+        {
+            prevSFXVolume = sfxSource.volume;
+            sfxSource.volume = 0.0f;
+            isSFXMuted = true;
+        }
+        else
+        {
+            sfxSource.volume = prevSFXVolume;
+            isSFXMuted = false;
+        }
+        
+    }
+
+    public float getMusicVolume()
+    {
+        return musicSource.volume;
+    }
+
+    public float getSFXVolume()
+    {
+        return sfxSource.volume;
     }
 
     public void MusicVolume(float volume)
